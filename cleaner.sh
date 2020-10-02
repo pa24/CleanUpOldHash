@@ -33,10 +33,6 @@ then
                         #find #найти файлы старше недели, по пути  $TAGPATH/$hash
                                 for file in $(find $TAGPATH/$hash -maxdepth 0 -type d -mtime +150)
 do
-                                        #echo "==================================="
-                                        #echo "должны быть удалены теги:"
-                                        #echo "+++++++++++++++++++++++++++++++++++"
-                                        #echo "удалены ревизии:"
                                         #нахожу путь к ревизиям
                                         REV=$REVPATH/$(basename $file)
                                         echo $file
@@ -44,7 +40,6 @@ do
                                         #удаляю тэги и ревизии
                                         rm -rf $file;
                                         rm -rf $REV;
-                                        #echo "==================================="
                                         TAG_COUNT=$((TAG_COUNT+1))
 done
                 done
